@@ -48,7 +48,11 @@ public class PianoController : MonoBehaviour
 			rt.sizeDelta = size;
 			for (int j = 0; j < octaves[i].blackKeys.Length; j++)
 			{
-				octaves[i].blackKeys[j].SetWidth(blackKeyWidth/count);
+				float keyWidth = blackKeyWidth / count;
+				octaves[i].blackKeys[j].SetWidth(keyWidth);
+
+				float childScale = keyWidth / blackKeyWidth;
+				octaves[i].blackKeys[j].SetChildScale(childScale);
 			}
 		}
 	}

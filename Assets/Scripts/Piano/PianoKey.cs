@@ -75,6 +75,17 @@ public class PianoKey : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 	}
 
 	/// <summary>
+	/// Update local scale for children of key Transform
+	/// </summary>
+	public void SetChildScale(float input)
+	{
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			transform.GetChild(i).localScale = Vector3.one * input;
+		}
+	}
+
+	/// <summary>
 	/// Set key press state
 	/// </summary>
 	/// <param name="input">key is pressed</param>
